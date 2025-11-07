@@ -2,3 +2,15 @@
 __pycache__
 *.pyc
 *.pyo
+
+# Ignore all images inside assets folder
+files/*.png
+files/*.jpg
+files/*.jpeg
+files/*.gif
+files/*.bmp
+files/*.svg
+files/*.webp
+
+# But still track the folder itself
+!files/.gitkeep
