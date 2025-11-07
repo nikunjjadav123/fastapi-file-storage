@@ -88,3 +88,8 @@ This project includes a **CI/CD pipeline using GitHub Actions** that automates t
 
 4. **Run the Docker Container Automatically**  
    The pipeline stops any running container with the same name, removes it, and starts a new container with the updated image.
+
+---
+
+## 👨‍💻 Author
+**Nikunj Jadav Developer**
