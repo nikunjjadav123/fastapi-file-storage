@@ -6,7 +6,7 @@ from app.file_manager import save_file, list_files
 from app.config import UPLOAD_DIR
 import os
 
-app = FastAPI(title = "File Storage Service1234")
+app = FastAPI(title = "File Storage Service 12345")
 
 @app.post("/upload", response_model=FileSchema)
 async def upload_file(file: UploadFile = File(...)):

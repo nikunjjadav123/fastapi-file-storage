@@ -20,7 +20,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build docker image
-        run: docker build -t ${secrets.DOCKER_USERNAME}/fastapi-file-storage:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/fastapi-file-storage:latest .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
