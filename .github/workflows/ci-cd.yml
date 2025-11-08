@@ -18,9 +18,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
           python -m pip install --upgrade pip
-          pip uninstall python-magic-pip
+          pip uninstall python-magic-bin -y
+          pip uninstall python-magic -y
+          pip install python-magic
+          pip install -r requirements.txt
 
       - name: Build docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/fastapi-file-storage:latest .
