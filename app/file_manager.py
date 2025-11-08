@@ -9,13 +9,13 @@ async def save_file(file: UploadFile) -> str:
     contents = await file.read()
     size = len(contents)
     # Step 1: Real MIME type validation
-    mime = magic.from_buffer(contents, mime=True)
+    mime_type = file.content_type
     allowed_mimes = ["image/png", "image/jpeg", "image/jpg"]
-    
-    if mime not in allowed_mimes:
-         raise HTTPException(
+
+    if mime_type not in allowed_mimes:
+        raise HTTPException(
             status_code=400,
-            detail=f"Invalid content type: {mime}. Only image files are allowed."
+            detail=f"Invalid content type: {mime_type}. Only image files are allowed."
         )
     
     # Step 2: Pydantic validation (extension + size)
