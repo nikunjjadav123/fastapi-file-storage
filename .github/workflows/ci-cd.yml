@@ -34,6 +34,6 @@ jobs:
       - name: Push and run Docker image
         run: |
              docker pull ${{ secrets.DOCKER_USERNAME }}/fastapi-file-storage:latest
-             docker stop fastapi-file-storage
-             docker rm fastapi-file-storage
-             docker run -d --name fastapi-file-storage -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/fastapi-file-storage:latest
+             docker stop fastapi-file-storage:latest || true
+             docker rm fastapi-file-storage:latest || true
+             docker run -d --name fastapi-file-storage:latest -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/fastapi-file-storage:latest
