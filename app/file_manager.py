@@ -4,9 +4,9 @@ import magic
 from app.config import UPLOAD_DIR
 from app.schemas import FileSchema
 
-def save_file(file: UploadFile) -> str:
+async def save_file(file: UploadFile) -> str:
 
-    contents = file.read()
+    contents = await file.read()
     size = len(contents)
     # Step 1: Real MIME type validation
     mime = magic.from_buffer(contents, mime=True)
