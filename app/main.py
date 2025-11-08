@@ -10,7 +10,7 @@ app = FastAPI(title = "File Storage Service")
 
 @app.post("/upload", response_model=FileSchema)
 async def upload_file(file: UploadFile = File(...)):
-    file_path = save_file(file)
+    file_path = await save_file(file)
     url = f"/files/{file_path}"
     return {
         "filename": file.filename,
